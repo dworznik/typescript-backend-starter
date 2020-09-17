@@ -1,0 +1,71 @@
+{
+  "name": "@dworznik/typescript-starter",
+  "version": "0.0.5",
+  "description": "TypeScript project template",
+  "engines": {
+    "node": ">= 10 <15"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf coverage dist tmp",
+    "build": "ttsc -p tsconfig.release.json",
+    "build:watch": "tsc -w -p tsconfig.release.json",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint src __tests__ --ext .ts"
+  },
+  "keywords": [
+    "typescript",
+    "starter"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "Patryk Dwórznik",
+  "license": "MIT",
+  "homepage": "https://github.com/dworznik/typescript-starter#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dworznik/typescript-starter.git"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.10.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "@zerollup/ts-transform-paths": "^1.7.18",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fetch-mock-jest": "^1.3.0",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "jest-extended": "^0.11.5",
+    "lint-staged": "^10.3.0",
+    "prettier": "^2.1.1",
+    "ts-jest": "^26.3.0",
+    "ts-node": "^9.0.0",
+    "tsutils": "^3.17.1",
+    "ttypescript": "^1.5.12",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.6",
+    "date-fns": "^2.16.1"
+  }
+}
